@@ -49,7 +49,7 @@ private void ShowParticularStudentAverage(Student[] students, string name){
 	Console.WriteLine($"Name: {st.GetName()}. Average: {st.GetAverageStudentMark()}");
 	}
 	catch(Exception ex){
-	Console.WriteLine($"Error! {ex.Message} Please, enter other student name: ");
+	Console.WriteLine($"Error! {ex.Message} Please, enter other student name:");
 	FindParticularStudentInfo(students);
 	}
 }
