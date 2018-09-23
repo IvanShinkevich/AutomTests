@@ -75,7 +75,7 @@ private Student[] CreateStudents(int studentsAmo){
 		int[] marks = GetMarks();
 		if(marks.Count() == 0){
 		i--;
-		Console.WriteLine("Incorrect input. One more time, please");
+		Console.WriteLine("Incorrect input. One more time, please.");
 		} else{
 		st[i] = new Student(name, marks);
 		}
