@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using AirlinesTestingApp.Pages;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -7,33 +8,44 @@ using OpenQA.Selenium.Chrome;
 namespace AirlinesTestingApp
 {
     [TestClass]
-    public class UnitTest1
+    public class OneWayTicketSelectingTest
     {
+        private HomePage homePage;
+
         [TestMethod]
-        public void TestMethod1()
+        public void SelectOneWayTicketAndAssertReturningDateDisabled()
         {
-            //Init driver
-            var driver = new ChromeDriver();
-            //Navigate to tab
-            driver.Navigate().GoToUrl("https://www.aircaraibes.com/");
-            //Close ads
-            driver.FindElementByClassName("optanon-alert-box-close").Click();
-            //Click checkbox for one-way ticket
-            Thread.Sleep(1000);
-            var chkBox = driver.FindElement(By.Id("departure-only"));
-            chkBox.Click();
-            //Assert that "date from" is disabled
-            var el = driver.FindElementById("edit-b-date-2-booking-0");
-            if (el.Enabled != false)
-            {
-                throw new AssertFailedException();
-            }
-            var el1 = driver.FindElementById("uniform-edit-date-range-value-2");
-            var classNames = el1.GetAttribute("className");
-            if (!classNames.Contains("disabled"))
-            {
-                throw new AssertFailedException();
-            }
+            _1_OpenHomePageAndSelectOneWayTicket();
+
+            _2_AssertDisabledFields();
+        }
+
+        private void _1_OpenHomePageAndSelectOneWayTicket()
+        {
+            var homePage = new HomePage(new ChromeDriver());
+            homePage.OpenHomePage();
+            homePage.CloseAds();
+            homePage.SelectOneWayTicket();
+            this.homePage = homePage;
+        }
+
+        private void _2_AssertDisabledFields()
+        {
+            AssertDateFieldDisabled();
+            AssertProximityFieldDisabled();
+        }
+
+        private void AssertDateFieldDisabled()
+        {
+            var dateField = homePage.GetReturnTicketDate();
+            Assert.AreEqual(false, dateField.Enabled);
+        }
+
+        private void AssertProximityFieldDisabled()
+        {
+            var proximityField = homePage.GetReturnTicketProximity();
+            var classNames = proximityField.GetAttribute("className");
+            Assert.AreEqual(true, classNames.Contains("disabled"));
         }
     }
 }
