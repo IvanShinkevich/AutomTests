@@ -1,0 +1,85 @@
+1 testcase
+	
+	Проверка корректности формы для полета в одну сторону
+	Шаги:
+	-Go to https://www.aircaraibes.com/
+	-Select 'one way ticket' checkbox
+	Expected result: 'Date retour' field is 'grayed'.
+
+2 testcase
+	
+	Проверка отсутствия рейсов в Минск
+	Шаги:
+	-Go to https://www.aircaraibes.com/recherche/p/text/Minsk
+	Expected result: search results amount is equal to zero.
+
+3 testcase
+	
+	Проверка наличия рейсов в Париж
+	-Go to https://www.aircaraibes.com/recherche/p/text/Paris
+	Expected result: search results amount is greater than 0.
+
+4 testcase
+
+	Проверка что более 9 человек не могут заказать билеты через данную форму
+	Шаги: 
+	- Go to https://www.aircaraibes.com/mon-compte?destination=reserver-un-vol/billet-prime
+	- Select 'passanger' tab
+	- Input to 'Adults' 9
+	- Press the '^' button
+	Expected result: error occured, assert text.
+
+5 testcase
+
+	Проверка невозможности отправить ребенка одного в полет
+	Шаги: 
+	- Go to https://www.aircaraibes.com/mon-compte?destination=reserver-un-vol/billet-prime
+	- Select 'passanger' tab
+	- Input to 'Adults' 0
+	- Input to 'Children' 1
+	Expected result: Error occured, need to assert error message text.
+
+6 testcase
+
+	Проверка того, что ребенка можно отправить в полёт со взрослым
+	Шаги: 
+	- Go to https://www.aircaraibes.com/mon-compte?destination=reserver-un-vol/billet-prime
+	- Select 'passanger' tab
+	- Input to 'Adults' 1
+	- Input to 'Children' 1
+	Expected result: no error occured.
+
+7 testcase
+
+	Проверка отсутствия возможности ввести дату раньше, чем текущая
+	Шаги:
+	-Go to https://www.aircaraibes.com/
+	-Fill in the booking form
+	-Fill in the 'Date aller' field date that is earlier than the current date
+	-Submit form
+	Expected result: Error occured, need to assert error message text.
+
+8 testcase
+
+	-Go to https://www.aircaraibes.com/
+	-Fill in the booking form
+	-Fill in the 'Date retour'field date that is earlier than the 'Date aller' date
+	-Submit form
+	Expected result: Error occured, need to assert error message text.
+
+9 testcase
+	
+	Проверка корректности заполнения формы
+	Шаги:
+	-Go to https://www.aircaraibes.com/
+	-Click the submit button for booking form
+	Expected result: 4 error messages occured due to the fact that necessary fields are not filed, need to assert error messages text.
+
+10 testcase
+	
+	Проверка того, что место вылета и прибытия отличаются
+	Шаги: 
+	-Go to https://www.aircaraibes.com/
+	-Select in 'Departure' first value(Paris-Orly, for example)
+	-Verify that the 'Arrival' list does not has the same option.
+	Expected result: the 'Arrival' list does not has the specified option.
