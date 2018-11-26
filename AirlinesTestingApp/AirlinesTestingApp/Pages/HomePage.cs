@@ -22,16 +22,26 @@ namespace AirlinesTestingApp.Pages
         By notificationCross = By.ClassName("acc--closeLink");
         By errorsMessages = By.ClassName("messages");
 
+        private void SelectDeparture()
+        {
+            var placeToLeave = new SelectElement(driver.FindElement(departure));
+            placeToLeave.SelectByIndex(1);//Because "zero" value is default
+        }
+
+        private void ChooseValueOfSelectTag(By selector, int index)
+        {
+            var selectElement = new SelectElement(driver.FindElement(selector));
+            selectElement.SelectByIndex(index);//Because "zero" value is default
+        }
+
+        private void CloseDatePicker()
+        {
+            driver.FindElement(dateClosingCross).Click();
+        }
+
         public HomePage(IWebDriver driver)
         {
             this.driver = driver;
-
-            // Check that we're on the right page.
-            //if (!"Login".equals(driver.getTitle()))
-            //{
-            //    // Alternatively, we could navigate to the login page, perhaps logging out first
-            //    throw new IllegalStateException("This is not the login page");
-            //}
         }
 
         public void OpenHomePage()
@@ -59,27 +69,15 @@ namespace AirlinesTestingApp.Pages
         public IWebElement GetReturnTicketProximity()
         {
             return driver.FindElement(returnTicketProximity);
-        }   
+        }
 
         public void FillInBookingForm()
         {
-           ChooseValueOfSelectTag(departure, 1);
+            ChooseValueOfSelectTag(departure, 1);
             ChooseValueOfSelectTag(arrival, 12);
 
             SetDateTime(driver.FindElement(leavingTicketDate), DateTime.Now.ToString("dd'/'MM'/'yyyy"));
             SetDateTime(GetReturnTicketDate(), DateTime.Now.ToString("dd'/'MM'/'yyyy"));
-        }
-
-        private void SelectDeparture()
-        {
-            var placeToLeave = new SelectElement(driver.FindElement(departure));
-            placeToLeave.SelectByIndex(1);//Because "zero" value is default
-        }
-
-        private void ChooseValueOfSelectTag(By selector, int index)
-        {
-            var selectElement = new SelectElement(driver.FindElement(selector));
-            selectElement.SelectByIndex(index);//Because "zero" value is default
         }
 
         public void SetDateTime(IWebElement el, string value)
@@ -96,11 +94,6 @@ namespace AirlinesTestingApp.Pages
         public void SubmitBookingForm()
         {
             driver.FindElement(bookingFormSubmitButton).Click();
-        }
-
-        private void CloseDatePicker()
-        {
-            driver.FindElement(dateClosingCross).Click();
         }
 
         public IWebElement GetErrorsMessages()

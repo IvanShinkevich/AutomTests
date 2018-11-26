@@ -56,8 +56,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\HomePage.cs" />
-    <Compile Include="ReturnDateValidationTest.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="Tests\ReturnDateValidationTest.cs" />
+    <Compile Include="Tests\OneWayTicketSelectingTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
