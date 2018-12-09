@@ -9,7 +9,6 @@ namespace AirlinesTestingApp.Pages
     {
         private IWebDriver driver;
         private const string Url = "https://www.aircaraibes.com/";
-
         By advertisementCross = By.ClassName("optanon-alert-box-close");
         By oneWayTicketCheckbox = By.Id("departure-only");
         By leavingTicketDate = By.Id("edit-b-date-1-booking-0");
@@ -46,7 +45,12 @@ namespace AirlinesTestingApp.Pages
 
         public void OpenHomePage()
         {
-            driver.Navigate().GoToUrl(Url);
+            GoToUrl(Url);
+        }
+
+        public void GoToUrl(string url)
+        {
+            driver.Navigate().GoToUrl(url);
         }
 
         public void CloseAds()
@@ -64,6 +68,11 @@ namespace AirlinesTestingApp.Pages
         public IWebElement GetReturnTicketDate()
         {
             return driver.FindElement(returnTicketDate);
+        }
+
+        public IWebElement GetLeavingTicketDate()
+        {
+            return driver.FindElement(leavingTicketDate);
         }
 
         public IWebElement GetReturnTicketProximity()

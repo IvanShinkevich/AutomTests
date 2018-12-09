@@ -55,7 +55,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\SearchResultsPage.cs" />
     <Compile Include="Pages\HomePage.cs" />
+    <Compile Include="Tests\CheckSearchResultsAppeared.cs" />
+    <Compile Include="Tests\CheckNoSearchResultsAppeared.cs" />
+    <Compile Include="Tests\ArrivalDateValidationTest.cs" />
     <Compile Include="Tests\ReturnDateValidationTest.cs" />
     <Compile Include="Tests\OneWayTicketSelectingTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

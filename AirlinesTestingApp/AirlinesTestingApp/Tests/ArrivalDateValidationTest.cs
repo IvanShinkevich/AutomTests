@@ -5,7 +5,7 @@ using OpenQA.Selenium.Chrome;
 namespace AirlinesTestingApp
 {
     [TestClass]
-    public class ReturnDateValidationTest
+    public class ArrivalDateValidationTest
     {
         private HomePage homePage;
         private const string ErrorMessage = "MESSAGE D'ERREUR\r\nVous devez choisir une date " +
@@ -13,11 +13,11 @@ namespace AirlinesTestingApp
             ", et ^DATA(END_RANGE_NUM).";
 
         [TestMethod]
-        public void CheckReturnDateGreaterOrEqualLeavingDate()
+        public void CheckArrivalDateGreaterOrEqualLeavingDate()
         {
             _1_OpenHomePage();
 
-            _2_FillInBookingFormSetIncorrectReturnDateAndSubmit();
+            _2_FillInBookingFormSetIncorrectArrivalDateAndSubmit();
 
             _3_AssertErrorsVisible();
         }
@@ -30,11 +30,11 @@ namespace AirlinesTestingApp
             this.homePage = homePage;
         }
 
-        private void _2_FillInBookingFormSetIncorrectReturnDateAndSubmit()
+        private void _2_FillInBookingFormSetIncorrectArrivalDateAndSubmit()
         {
             homePage.FillInBookingForm();
-            homePage.GetReturnTicketDate().Clear();
-            homePage.SetDateTime(homePage.GetReturnTicketDate(), "11/11/2011");
+            homePage.GetLeavingTicketDate().Clear();
+            homePage.SetDateTime(homePage.GetLeavingTicketDate(), "11/11/2011");
             homePage.SubmitBookingForm();
         }
 

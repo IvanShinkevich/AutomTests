@@ -7,15 +7,15 @@ namespace AirlinesTestingApp
     [TestClass]
     public class OneWayTicketSelectingTest
     {
-        private HomePage homePage;
+            private HomePage homePage;
 
-        [TestMethod]
-        public void SelectOneWayTicketAndAssertReturningDateDisabled()
-        {
-            _1_OpenHomePageAndSelectOneWayTicket();
+            [TestMethod]
+            public void SelectOneWayTicketAndAssertReturningDateDisabled()
+            {
+                _1_OpenHomePageAndSelectOneWayTicket();
 
-            _2_AssertDisabledFields();
-        }
+                _2_AssertDisabledFields();
+            }
 
         private void _1_OpenHomePageAndSelectOneWayTicket()
         {
