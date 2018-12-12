@@ -1,47 +1,47 @@
-﻿using AirlinesTestingApp.Pages;
+﻿using System.Linq;
+using System.Net.Mime;
+using AirlinesTestingApp.Pages;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 
-namespace AirlinesTestingApp
+namespace AirlinesTestingApp.Tests
 {
     [TestClass]
-    public class ArrivalDateValidationTest
+    public class DifferentDestinationAndSourceTest
     {
         private HomePage homePage;
-        private const string ErrorMessage = "MESSAGE D'ERREUR\r\nVous devez choisir une date " +
-            "/ heure de départ, comprise entre ^DATA(START_RANGE_NUM), à partir de maintenant" +
-            ", et ^DATA(END_RANGE_NUM).";
+        private SelectElement arrivalAirports;
+        private IWebElement departureAirport;
 
         [TestMethod]
-        public void CheckArrivalDateGreaterOrEqualLeavingDate()
+        public void CheckDifferentSourceAndDestination()
         {
             _1_OpenHomePage();
 
-            _2_FillInBookingFormSetIncorrectArrivalDateAndSubmit();
+            _2_SetSourceAirport();
 
-            _3_AssertErrorsVisible();
+            _3_AssertNoSourceAirportInDestinationDropdown();
         }
 
         private void _1_OpenHomePage()
         {
-            var homePage = new HomePage(new ChromeDriver());
+            homePage = new HomePage(new ChromeDriver());
             homePage.OpenHomePage();
-            homePage.CloseAds();
-            this.homePage = homePage;
         }
 
-        private void _2_FillInBookingFormSetIncorrectArrivalDateAndSubmit()
+        private void _2_SetSourceAirport()
         {
-            homePage.FillInBookingForm();
-            homePage.GetLeavingTicketDate().Clear();
-            homePage.SetDateTime(homePage.GetLeavingTicketDate(), "11/11/2011");
-            homePage.SubmitBookingForm();
+            departureAirport = homePage.SetDepartureAndReturnElement();
+            arrivalAirports = homePage.GetArrivalAirportOptions();
         }
 
-        private void _3_AssertErrorsVisible()
+        private void _3_AssertNoSourceAirportInDestinationDropdown()
         {
-            var messageText = homePage.GetErrorsMessages().Text;
-            Assert.AreEqual(ErrorMessage, messageText);
+            var arrivalOptions = arrivalAirports.Options;
+            var existsDepartureValueInArrival = arrivalOptions.Any(i => i.Text.Equals(departureAirport.Text));
+            Assert.AreEqual(false, existsDepartureValueInArrival);
         }
     }
 }

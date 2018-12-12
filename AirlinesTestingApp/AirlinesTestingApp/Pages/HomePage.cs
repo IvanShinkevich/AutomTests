@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
+using System.Collections.Generic;
 using System.Threading;
 
 namespace AirlinesTestingApp.Pages
@@ -20,6 +21,13 @@ namespace AirlinesTestingApp.Pages
         By dateClosingCross = By.ClassName("ui-datepicker__close");
         By notificationCross = By.ClassName("acc--closeLink");
         By errorsMessages = By.ClassName("messages");
+        List<By> errorsXPaths = new List<By>()
+        {
+            By.XPath("//*[@id='ac-com-booking-amadeus-booking-homepage']/div[2]/ul/li[1]"),
+            By.XPath("//*[@id='ac-com-booking-amadeus-booking-homepage']/div[2]/ul/li[2]"),
+            By.XPath("//*[@id='ac-com-booking-amadeus-booking-homepage']/div[2]/ul/li[3]"),
+            By.XPath("//*[@id='ac-com-booking-amadeus-booking-homepage']/div[2]/ul/li[4]")
+        };
 
         private void SelectDeparture()
         {
@@ -89,6 +97,18 @@ namespace AirlinesTestingApp.Pages
             SetDateTime(GetReturnTicketDate(), DateTime.Now.ToString("dd'/'MM'/'yyyy"));
         }
 
+        public IWebElement SetDepartureAndReturnElement()
+        {
+            var selectElement = new SelectElement(driver.FindElement(departure));
+            selectElement.SelectByIndex(1);//Because "zero" value is default
+            return selectElement.SelectedOption;
+        }
+
+        public SelectElement GetArrivalAirportOptions()
+        {
+            return new SelectElement(driver.FindElement(arrival));
+        }
+
         public void SetDateTime(IWebElement el, string value)
         {
             el.SendKeys(value);
@@ -105,9 +125,19 @@ namespace AirlinesTestingApp.Pages
             driver.FindElement(bookingFormSubmitButton).Click();
         }
 
-        public IWebElement GetErrorsMessages()
+        public IWebElement GetErrorMessages()
         {
             return driver.FindElement(errorsMessages);
+        }
+
+        public List<IWebElement> GetErrorsElements()
+        {
+            List<IWebElement> resultElements = new List<IWebElement>();
+            foreach (var errorsXPath in errorsXPaths)
+            {
+                resultElements.Add(driver.FindElement(errorsXPath));
+            }
+            return resultElements;
         }
     }
 }   
