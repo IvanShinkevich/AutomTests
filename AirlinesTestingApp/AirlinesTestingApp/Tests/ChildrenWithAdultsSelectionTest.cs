@@ -22,7 +22,7 @@ namespace AirlinesTestingApp.Tests
 
         private void _1_OpenTicketsOrderingPage()
         {
-            ticketsPage = new TicketsPage(new ChromeDriver());
+            ticketsPage = new TicketsPage();
             ticketsPage.OpenTicketsPage();
         }
 

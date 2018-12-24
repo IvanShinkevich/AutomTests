@@ -1,11 +1,12 @@
-﻿using AirlinesTestingApp.Pages;
+﻿using AirlinesTestingApp.BaseEntities;
+using AirlinesTestingApp.Pages;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium.Chrome;
 
 namespace AirlinesTestingApp.Tests
 {
     [TestClass]
-    public class CheckNoSearchResultsAppeared
+    public class CheckNoSearchResultsAppeared : BaseTest
     {
         private SearchResultsPage searchResultsPage;
 
@@ -19,7 +20,7 @@ namespace AirlinesTestingApp.Tests
 
         private void _1_OpenSearchPageResultsForMinsk()
         {
-            searchResultsPage = new SearchResultsPage(new ChromeDriver());
+            searchResultsPage = new SearchResultsPage();
             searchResultsPage.GoToSearchResultsForSpecifiedWord("Minsk");
         }
 

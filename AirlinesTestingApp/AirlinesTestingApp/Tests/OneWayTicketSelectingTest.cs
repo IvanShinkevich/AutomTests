@@ -19,7 +19,7 @@ namespace AirlinesTestingApp
 
         private void _1_OpenHomePageAndSelectOneWayTicket()
         {
-            var homePage = new HomePage(new ChromeDriver());
+            var homePage = new HomePage();
             homePage.OpenHomePage();
             homePage.CloseAds();
             homePage.SelectOneWayTicket();

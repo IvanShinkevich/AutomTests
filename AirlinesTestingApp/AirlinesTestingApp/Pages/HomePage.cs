@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using AirlinesTestingApp.BaseEntities;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
@@ -46,10 +47,10 @@ namespace AirlinesTestingApp.Pages
             driver.FindElement(dateClosingCross).Click();
         }
 
-        public HomePage(IWebDriver driver)
+        public HomePage()
         {
-            this.driver = driver;
-        }
+            this.driver = Driver.GetDriverInstance();
+        }   
 
         public void OpenHomePage()
         {

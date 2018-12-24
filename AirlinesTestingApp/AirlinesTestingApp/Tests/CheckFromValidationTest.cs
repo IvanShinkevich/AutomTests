@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using AirlinesTestingApp.BaseEntities;
 using AirlinesTestingApp.Pages;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium.Chrome;
@@ -6,7 +7,7 @@ using OpenQA.Selenium.Chrome;
 namespace AirlinesTestingApp.Tests
 {
     [TestClass]
-    public class CheckFromValidationTest
+    public class CheckFromValidationTest : BaseTest
     {
         private HomePage homePage;
         private readonly List<string> errorsMessageList = new List<string>
@@ -29,7 +30,7 @@ namespace AirlinesTestingApp.Tests
 
         private void _1_OpenHomePage()
         {
-            homePage = new HomePage(new ChromeDriver());
+            homePage = new HomePage();
             homePage.OpenHomePage();
             homePage.CloseAds();
         }

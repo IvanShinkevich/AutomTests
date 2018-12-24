@@ -24,7 +24,7 @@ namespace AirlinesTestingApp
 
         private void _1_OpenHomePage()
         {
-            homePage = new HomePage(new ChromeDriver());
+            homePage = new HomePage();
             homePage.OpenHomePage();
             homePage.CloseAds();
         }

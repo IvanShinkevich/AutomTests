@@ -1,11 +1,12 @@
-﻿using AirlinesTestingApp.Pages;
+﻿using AirlinesTestingApp.BaseEntities;
+using AirlinesTestingApp.Pages;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium.Chrome;
 
 namespace AirlinesTestingApp
 {
     [TestClass]
-    public class ReturnDateValidationTest
+    public class ReturnDateValidationTest : BaseTest
     {
         private HomePage homePage;
         private const string ErrorMessage = "MESSAGE D'ERREUR\r\nVous devez choisir une date " +
@@ -24,7 +25,7 @@ namespace AirlinesTestingApp
 
         private void _1_OpenHomePage()
         {
-            var homePage = new HomePage(new ChromeDriver());
+            var homePage = new HomePage();
             homePage.OpenHomePage();
             homePage.CloseAds();
             this.homePage = homePage;

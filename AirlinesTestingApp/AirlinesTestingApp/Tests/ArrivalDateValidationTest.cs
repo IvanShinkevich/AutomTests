@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Net.Mime;
+using AirlinesTestingApp.BaseEntities;
 using AirlinesTestingApp.Pages;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
@@ -9,7 +10,7 @@ using OpenQA.Selenium.Support.UI;
 namespace AirlinesTestingApp.Tests
 {
     [TestClass]
-    public class DifferentDestinationAndSourceTest
+    public class DifferentDestinationAndSourceTest : BaseTest
     {
         private HomePage homePage;
         private SelectElement arrivalAirports;
@@ -27,7 +28,7 @@ namespace AirlinesTestingApp.Tests
 
         private void _1_OpenHomePage()
         {
-            homePage = new HomePage(new ChromeDriver());
+            homePage = new HomePage();
             homePage.OpenHomePage();
         }
 

@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using AirlinesTestingApp.BaseEntities;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Threading;
@@ -79,9 +80,9 @@ namespace AirlinesTestingApp.Pages
             element.SendKeys(num.ToString());
         }
 
-        public TicketsPage(IWebDriver driver)
+        public TicketsPage()
         {
-            this.driver = driver;
+            this.driver = Driver.GetDriverInstance();
         }
 
         public void OpenTicketsPage()

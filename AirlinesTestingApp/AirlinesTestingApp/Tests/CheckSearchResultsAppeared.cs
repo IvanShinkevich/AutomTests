@@ -19,7 +19,7 @@ namespace AirlinesTestingApp.Tests
 
         private void _1_OpenSearchPageResultsForParis()
         {
-            searchResultsPage = new SearchResultsPage(new ChromeDriver());
+            searchResultsPage = new SearchResultsPage();
             searchResultsPage.GoToSearchResultsForSpecifiedWord("Paris");
         }
 

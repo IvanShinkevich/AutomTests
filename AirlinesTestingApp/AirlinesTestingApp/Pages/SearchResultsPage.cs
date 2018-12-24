@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using AirlinesTestingApp.BaseEntities;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Threading;
@@ -13,9 +14,9 @@ namespace AirlinesTestingApp.Pages
 
         By searchBoxResults = By.XPath("//*[@id='block-current-search-standard']/div/div/h3[1]");
         
-        public SearchResultsPage(IWebDriver driver)
+        public SearchResultsPage()
         {
-            this.driver = driver;
+            this.driver = Driver.GetDriverInstance();
         }
 
         public void OpenSearchResultsPage()
