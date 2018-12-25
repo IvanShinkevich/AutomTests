@@ -1,28 +1,28 @@
-1 testcase
+п»ї1 testcase
 	
-	Проверка корректности формы для полета в одну сторону
-	Шаги:
+	РџСЂРѕРІРµСЂРєР° РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚Рё С„РѕСЂРјС‹ РґР»СЏ РїРѕР»РµС‚Р° РІ РѕРґРЅСѓ СЃС‚РѕСЂРѕРЅСѓ
+	РЁР°РіРё:
 	-Go to https://www.aircaraibes.com/
 	-Select 'one way ticket' checkbox
 	Expected result: 'Date retour' field is 'grayed'.
 
 2 testcase
 	
-	Проверка отсутствия рейсов в Минск
-	Шаги:
+	РџСЂРѕРІРµСЂРєР° РѕС‚СЃСѓС‚СЃС‚РІРёСЏ СЂРµР№СЃРѕРІ РІ РњРёРЅСЃРє
+	РЁР°РіРё:
 	-Go to https://www.aircaraibes.com/recherche/p/text/Minsk
 	Expected result: search results amount is equal to zero.
 
 3 testcase
 	
-	Проверка наличия рейсов в Париж
+	РџСЂРѕРІРµСЂРєР° РЅР°Р»РёС‡РёСЏ СЂРµР№СЃРѕРІ РІ РџР°СЂРёР¶
 	-Go to https://www.aircaraibes.com/recherche/p/text/Paris
 	Expected result: search results amount is greater than 0.
 
 4 testcase
 
-	Проверка что более 9 человек не могут заказать билеты через данную форму
-	Шаги: 
+	РџСЂРѕРІРµСЂРєР° С‡С‚Рѕ Р±РѕР»РµРµ 9 С‡РµР»РѕРІРµРє РЅРµ РјРѕРіСѓС‚ Р·Р°РєР°Р·Р°С‚СЊ Р±РёР»РµС‚С‹ С‡РµСЂРµР· РґР°РЅРЅСѓСЋ С„РѕСЂРјСѓ
+	РЁР°РіРё: 
 	- Go to https://www.aircaraibes.com/mon-compte?destination=reserver-un-vol/billet-prime
 	- Select 'passanger' tab
 	- Input to 'Adults' 9
@@ -31,8 +31,8 @@
 
 5 testcase
 
-	Проверка невозможности отправить ребенка одного в полет
-	Шаги: 
+	РџСЂРѕРІРµСЂРєР° РЅРµРІРѕР·РјРѕР¶РЅРѕСЃС‚Рё РѕС‚РїСЂР°РІРёС‚СЊ СЂРµР±РµРЅРєР° РѕРґРЅРѕРіРѕ РІ РїРѕР»РµС‚
+	РЁР°РіРё: 
 	- Go to https://www.aircaraibes.com/mon-compte?destination=reserver-un-vol/billet-prime
 	- Select 'passanger' tab
 	- Input to 'Adults' 0
@@ -41,8 +41,8 @@
 
 6 testcase
 
-	Проверка того, что ребенка можно отправить в полёт со взрослым
-	Шаги: 
+	РџСЂРѕРІРµСЂРєР° С‚РѕРіРѕ, С‡С‚Рѕ СЂРµР±РµРЅРєР° РјРѕР¶РЅРѕ РѕС‚РїСЂР°РІРёС‚СЊ РІ РїРѕР»С‘С‚ СЃРѕ РІР·СЂРѕСЃР»С‹Рј
+	РЁР°РіРё: 
 	- Go to https://www.aircaraibes.com/mon-compte?destination=reserver-un-vol/billet-prime
 	- Select 'passanger' tab
 	- Input to 'Adults' 1
@@ -51,8 +51,8 @@
 
 7 testcase
 
-	Проверка отсутствия возможности ввести дату раньше, чем текущая
-	Шаги:
+	РџСЂРѕРІРµСЂРєР° РѕС‚СЃСѓС‚СЃС‚РІРёСЏ РІРѕР·РјРѕР¶РЅРѕСЃС‚Рё РІРІРµСЃС‚Рё РґР°С‚Сѓ СЂР°РЅСЊС€Рµ, С‡РµРј С‚РµРєСѓС‰Р°СЏ
+	РЁР°РіРё:
 	-Go to https://www.aircaraibes.com/
 	-Fill in the booking form
 	-Fill in the 'Date aller' field date that is earlier than the current date
@@ -69,16 +69,16 @@
 
 9 testcase
 	
-	Проверка корректности заполнения формы
-	Шаги:
+	РџСЂРѕРІРµСЂРєР° РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚Рё Р·Р°РїРѕР»РЅРµРЅРёСЏ С„РѕСЂРјС‹
+	РЁР°РіРё:
 	-Go to https://www.aircaraibes.com/
 	-Click the submit button for booking form
 	Expected result: 4 error messages occured due to the fact that necessary fields are not filed, need to assert error messages text.
 
 10 testcase
 	
-	Проверка того, что место вылета и прибытия отличаются
-	Шаги: 
+	РџСЂРѕРІРµСЂРєР° С‚РѕРіРѕ, С‡С‚Рѕ РјРµСЃС‚Рѕ РІС‹Р»РµС‚Р° Рё РїСЂРёР±С‹С‚РёСЏ РѕС‚Р»РёС‡Р°СЋС‚СЃСЏ
+	РЁР°РіРё: 
 	-Go to https://www.aircaraibes.com/
 	-Select in 'Departure' first value(Paris-Orly, for example)
 	-Verify that the 'Arrival' list does not has the same option.

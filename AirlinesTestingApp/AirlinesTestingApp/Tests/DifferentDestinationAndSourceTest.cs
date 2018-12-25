@@ -1,11 +1,12 @@
-﻿using AirlinesTestingApp.Pages;
+﻿using AirlinesTestingApp.BaseEntities;
+using AirlinesTestingApp.Pages;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium.Chrome;
 
 namespace AirlinesTestingApp
 {
     [TestClass]
-    public class ArrivalDateValidationTest
+    public class ArrivalDateValidationTest : BaseTest
     {
         private HomePage homePage;
         private const string ErrorMessage = "MESSAGE D'ERREUR\r\nVous devez choisir une date " +

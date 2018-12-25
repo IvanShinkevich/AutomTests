@@ -1,11 +1,12 @@
-﻿using AirlinesTestingApp.Pages;
+﻿using AirlinesTestingApp.BaseEntities;
+using AirlinesTestingApp.Pages;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium.Chrome;
 
 namespace AirlinesTestingApp
 {
     [TestClass]
-    public class OneWayTicketSelectingTest
+    public class OneWayTicketSelectingTest : BaseTest
     {
             private HomePage homePage;
 

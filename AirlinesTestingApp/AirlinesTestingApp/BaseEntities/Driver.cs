@@ -3,7 +3,7 @@ using OpenQA.Selenium.Chrome;
 
 namespace AirlinesTestingApp.BaseEntities
 {
-    public class Driver
+    public static class Driver
     {
         private static IWebDriver driver;
 

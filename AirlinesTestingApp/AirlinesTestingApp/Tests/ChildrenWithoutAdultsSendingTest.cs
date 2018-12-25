@@ -1,11 +1,12 @@
-﻿using AirlinesTestingApp.Pages;
+﻿using AirlinesTestingApp.BaseEntities;
+using AirlinesTestingApp.Pages;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium.Chrome;
 
 namespace AirlinesTestingApp.Tests
 {
     [TestClass]
-    public class ChildrenWithoutAdultsSendingTest
+    public class ChildrenWithoutAdultsSendingTest : BaseTest
     {
         private TicketsPage ticketsPage;
 
